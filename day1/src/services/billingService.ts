@@ -2,6 +2,7 @@
 import { Bill } from '../models/bill';
 import { randomCarType } from '../utils/randomcarType';
 import { CarType } from '../models/cartype';
+import { Schedule } from '../models/schedule';
 type ReadOnlyBill = Readonly<Bill>;
 
 export let bills: ReadOnlyBill[] = [];
