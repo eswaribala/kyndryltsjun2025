@@ -1,6 +1,7 @@
-import {faker} from '@faker-js/faker';
+import {faker, ro} from '@faker-js/faker';
 import { Route } from '../models/route';
 import { checkRoute } from '../utils/checkRoute';
+import { getRouteProps } from '../utils/closuredata';
 
 //mandatory type from optional type
 type RequiredRoute = Required<Route>;
@@ -20,3 +21,13 @@ for(let i = 0; i < 100; i++) {
     routes.push(route);
 }
 console.log('status of routes:', checkRoute(routes));
+
+
+type ExtractedRoute =  ReturnType<typeof getRouteProps>;
+let routeProps: ExtractedRoute={
+    id: faker.string.uuid(),
+    name: faker.company.name(),
+    startCity: faker.location.city(),
+    endCity: faker.location.city()
+};
+console.log('routeProps:', routeProps.id,routeProps.name);;

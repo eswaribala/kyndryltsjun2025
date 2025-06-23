@@ -8,4 +8,5 @@ export type Driver={
    
 }
 
-export type DriverProfile=Pick<Driver, 'driverId' | 'name' | 'phoneNumber' | 'email'>;
+//export type DriverProfile=Pick<Driver, 'driverId' | 'name' | 'phoneNumber' | 'email'>;
+export type DriverProfile=Omit<Driver, 'licenseNumber'|'isActive'>; // Driver profile without the license number
