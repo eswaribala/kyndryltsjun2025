@@ -28,9 +28,16 @@ function union(fdSet:Set<string>, loanSet:Set<string>):Set<string> {
     return new Set<string>([...fdSet,...loanSet]);    
 }
 
+function symmetricDifference(fdSet:Set<string>, loanSet:Set<string>):Set<string> {
+    return new Set<string>([...fdSet].filter(x => !loanSet.has(x)).concat([...loanSet].filter(x => !fdSet.has(x))));   
+}   
+
 
 const result=intersection(fdSet, loanSet);
 console.log("Intersection of fdSet and loanSet:", Array.from(result).join(", "));
 
 const unionResult=union(fdSet, loanSet);
 console.log("Union of fdSet and loanSet:", Array.from(unionResult).join(", "));
+
+const symmetricDifferenceResult=symmetricDifference(fdSet, loanSet);
+console.log("Symmetric Difference of fdSet and loanSet:", Array.from(symmetricDifferenceResult).join(", "));
