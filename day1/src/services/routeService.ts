@@ -1,7 +1,8 @@
 import {faker, ro} from '@faker-js/faker';
 import { Route } from '../models/route';
 import { checkRoute } from '../utils/checkRoute';
-import { getRouteProps } from '../utils/closuredata';
+import { getRouteProps,getData } from '../utils/closuredata';
+
 
 //mandatory type from optional type
 type RequiredRoute = Required<Route>;
@@ -30,4 +31,10 @@ let routeProps: ExtractedRoute={
     startCity: faker.location.city(),
     endCity: faker.location.city()
 };
-console.log('routeProps:', routeProps.id,routeProps.name);;
+console.log('routeProps:', routeProps.id,routeProps.name);
+
+type ExtractedDataType = ReturnType<typeof getData> 
+let data: ExtractedDataType ={
+    datatype: faker.datatype.boolean()
+}   
+console.log('data:', data);
