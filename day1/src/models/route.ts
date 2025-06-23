@@ -4,7 +4,7 @@ export type Route={
     startCity: string;
     endCity: string;
     distance: number; // in kilometers
-    estimatedTime: number; // in minutes
+    estimatedTime?: number; // in minutes
     stops?: number; // optional array of stop addresses
     isActive: boolean; // indicates if the route is currently active
 }

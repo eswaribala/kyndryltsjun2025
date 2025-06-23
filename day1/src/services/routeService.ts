@@ -2,9 +2,12 @@ import {faker} from '@faker-js/faker';
 import { Route } from '../models/route';
 import { checkRoute } from '../utils/checkRoute';
 
+//mandatory type from optional type
+type RequiredRoute = Required<Route>;
+
 let routes:Route[] = [];
 for(let i = 0; i < 100; i++) {
-    const route: Route = {
+    const route: RequiredRoute = {
         id: faker.string.uuid(),
         name: faker.company.catchPhrase(),
         startCity: faker.location.city(),
