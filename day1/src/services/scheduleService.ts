@@ -28,10 +28,10 @@ for(let i = 0; i < 100; i++) {
         driver: {
             driverId: faker.string.uuid(), // Generate a unique identifier for the driver
             name: faker.person.fullName(), // Generate a random full name for the driver
-            licenseNumber: faker.commerce.isbn(),// Generate a random license number
+            //licenseNumber: faker.commerce.isbn(),// Generate a random license number
             phoneNumber: faker.phone.number(),// Generate a random phone number
             email: faker.internet.email(), // Generate a random email address
-            isActive: true // Set the driver as active
+            //isActive: true // Set the driver as active
         }, // Optional driver can be added later
         vehicle: undefined // Optional vehicle can be added later
     };

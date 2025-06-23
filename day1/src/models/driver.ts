@@ -7,3 +7,5 @@ export type Driver={
     isActive: boolean; // Indicates if the driver is currently active
    
 }
+
+export type DriverProfile=Pick<Driver, 'driverId' | 'name' | 'phoneNumber' | 'email'>;
