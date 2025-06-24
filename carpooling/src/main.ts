@@ -2,6 +2,8 @@ import './utils/userdata'
 import './services/notificationservice'
 import { processPayment } from './models/payment'
 import { PaymentMethod } from './models/payment';
+import {getExternalApiPromise} from './services/externalapipromise';
+
 
 const payment1:PaymentMethod={
     method: 'credit_card',
@@ -31,3 +33,12 @@ console.log(processPayment(payment1));
 console.log(processPayment(payment2));
 console.log(processPayment(payment3));
 console.log(processPayment(payment4));    
+
+//external api
+getExternalApiPromise<any>('https://jsonplaceholder.typicode.com/users')
+    .then(data => {
+        console.log('External API Data:', data);
+    })
+    .catch(error => {
+        console.error('Error fetching external API:', error);
+    });

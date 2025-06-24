@@ -1,11 +1,16 @@
+type userId= string;
+type role = 'admin' | 'user' | 'guest';
+type birthday = Date;
+
+
 export abstract class User{
-    protected _id: string;
+    protected _id: userId;
      protected _firstName: string;  
      protected _lastName: string;
      protected _email: string;
      protected _password: string;
      protected _phone: string;
-     protected readonly _dob: Date;
+     protected readonly _dob: birthday;
      protected _isDriver: boolean;    
      protected _createdAt: Date;
      protected _updatedAt: Date;
