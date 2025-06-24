@@ -25,6 +25,7 @@ it('loop over user object properties and check existence', () => {
   });
 });
 
+//parametrized test to check if user object is created with correct properties
 it.each(createUser())('should create a user object with the correct properties from createUser function', (user) => {
     expect(user).toBeDefined();
     expect(user).toBeInstanceOf(Employee);
@@ -33,8 +34,7 @@ it.each(createUser())('should create a user object with the correct properties f
     expect(user).toHaveProperty('lastName');
     expect(user).toHaveProperty('email');
     expect(user).toHaveProperty('password');
-    expect(user).toHaveProperty('phone');
-   
+    expect(user).toHaveProperty('phone');   
    
   });   
 
