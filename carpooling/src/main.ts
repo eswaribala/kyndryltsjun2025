@@ -8,6 +8,7 @@ const payment1:PaymentMethod={
     cardNumber: '1234-5678-9012-3456',
     expirationDate: '12/25',
     cvv: '123'
+    
 };
 const payment2:PaymentMethod={
     method: 'upi',

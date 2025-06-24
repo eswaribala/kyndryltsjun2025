@@ -19,7 +19,7 @@ type Wallet={
     method: 'wallet';
     walletId: string; // e.g., "wallet123"
 }   
-
+//union type for all payment methods
 export type PaymentMethod = CreditCard | UPI | NetBanking | Wallet;
 
 export function processPayment(payment: PaymentMethod): string {
