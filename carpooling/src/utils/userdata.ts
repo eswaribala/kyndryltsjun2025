@@ -17,6 +17,11 @@ userService.createUser(
             new Date(),
             faker.string.uuid(), // employeeId
             faker.commerce.department() // department
+            , faker.string.uuid(), // gstNumber
+            faker.company.name(), // companyName
+            faker.location.streetAddress(), // address
+            faker.location.state(), // state
+            faker.location.zipCode() // pinCode
         )
 userService.listUsers().then(users => {
     users.forEach(user => { 
