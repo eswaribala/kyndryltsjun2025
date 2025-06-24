@@ -1,3 +1,5 @@
+//union type and type guards for different payment methods
+
 type CreditCard={
     method: 'credit_card';
     cardNumber: string;
@@ -19,6 +21,10 @@ type Wallet={
     method: 'wallet';
     walletId: string; // e.g., "wallet123"
 }   
+
+
+
+
 //union type for all payment methods
 export type PaymentMethod = CreditCard | UPI | NetBanking | Wallet;
 
@@ -72,3 +78,19 @@ export function processPayment(payment: PaymentMethod): string {
 */
 }
 
+//intersection type authentication and authorization
+export type AuthenticatedUser = {
+    userId: string;
+    username: string;
+};
+export type AuthorizedUser = {
+   
+    permissions: string[]; // e.g., ['read', 'write', 'delete']
+};
+export type AuthenticatedAndAuthorizedUser = AuthenticatedUser & AuthorizedUser;
+
+export const user: AuthenticatedAndAuthorizedUser = {
+    userId: '12345',
+    username: 'john_doe',       
+    permissions: ['read', 'write', 'delete']
+}
