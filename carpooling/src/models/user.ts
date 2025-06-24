@@ -68,5 +68,6 @@ export abstract class User{
         this._phone = phone;
     }
     
+    abstract computeSalary(): number;
 
 }

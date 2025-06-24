@@ -1,5 +1,6 @@
 import { User } from './user';
 export class Employee extends User{
+   
     private _employeeId: string;
     private _department: string;
 
@@ -16,5 +17,9 @@ export class Employee extends User{
     get department(): string {
         return this._department;
     }       
+     //payroll
+     computeSalary(): number {
+        throw new Error('Method not implemented.');
+    }
 
 }

@@ -1,5 +1,47 @@
 import { Employee } from '../models/employee';
 import {faker} from '@faker-js/faker';
+import { UserFacade } from '../facades/userfacade';
+import { User } from '../models/user';
+export class UserService implements UserFacade {
+
+    private users: User[];
+    constructor() {
+        this.users = [];
+    }   
+
+    async createUser(id: string, firstName: string, lastName: string, email: string, password: string, phone: string, dob: Date, isDriver: boolean, createdAt: Date, updatedAt: Date, employeeId: string, department: string): Promise<User> {
+        
+        let user:User =new Employee(id, firstName, lastName, email, password, phone, dob, isDriver, createdAt, updatedAt, employeeId, department);
+        this.users.push(user);
+        return user; // Return the created user
+    }
+
+    async getUserById(userId: string): Promise<User | null> {
+        // Implementation to fetch user by ID
+        return this.users.find(user => user.id === userId) || null; // Placeholder
+    }
+
+    async updateUser(email?: string): Promise<Employee> {
+        // Implementation to update user
+        return new Employee('', '', '', '', '', '', new Date(), false, new Date(), new Date(), '', ''); // Placeholder
+    }
+
+    async deleteUser(userId: string): Promise<boolean> {
+        // Implementation to delete user
+        return true; // Placeholder
+    }
+
+    async listUsers(): Promise<Array<User>> {
+        // Implementation to list users
+        return this.users; // Placeholder
+    }
+}
+
+
+
+
+
+
 export function createUser():Employee[]{
     const users: Employee[] = [];
     for (let i = 0; i < 10; i++) {
