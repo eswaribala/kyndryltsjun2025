@@ -1,21 +1,23 @@
-export class User{
-    private _id: string;
-    private _firstName: string;  
-    private _lastName: string;
-    private _email: string;
-    private _password: string;
-    private _phone: string;
-    private _isDriver: boolean;    
-    private _createdAt: Date;
-    private _updatedAt: Date;
+export abstract class User{
+    protected _id: string;
+     protected _firstName: string;  
+     protected _lastName: string;
+     protected _email: string;
+     protected _password: string;
+     protected _phone: string;
+     protected readonly _dob: Date;
+     protected _isDriver: boolean;    
+     protected _createdAt: Date;
+     protected _updatedAt: Date;
     
-    constructor(id: string, firstName: string, lastName: string, email: string, password: string, phone: string, isDriver: boolean, createdAt: Date, updatedAt: Date) {
+    constructor(id: string, firstName: string, lastName: string, email: string, password: string, phone: string, dob:Date, isDriver: boolean, createdAt: Date, updatedAt: Date) {
         this._id = id;
         this._firstName = firstName;
         this._lastName = lastName;
         this._email = email;
         this._password = password;
         this._phone = phone;
+        this._dob = dob;
         this._isDriver = isDriver;
         this._createdAt = createdAt;
         this._updatedAt = updatedAt;
@@ -65,6 +67,6 @@ export class User{
     set phone(phone: string) {
         this._phone = phone;
     }
-
+    
 
 }
