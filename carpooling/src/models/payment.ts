@@ -22,7 +22,41 @@ type Wallet={
 //union type for all payment methods
 export type PaymentMethod = CreditCard | UPI | NetBanking | Wallet;
 
+//narrowing type guards for each payment method
+
+function isUPI(payment: PaymentMethod): payment is UPI {
+    return payment.method === 'upi';
+}
+function isCreditCard(payment: PaymentMethod): payment is CreditCard {
+    return payment.method === 'credit_card';
+}
+function isNetBanking(payment: PaymentMethod): payment is NetBanking {  
+    return payment.method === 'net_banking';
+}
+function isWallet(payment: PaymentMethod): payment is Wallet {
+    return payment.method === 'wallet';
+}
+
+
 export function processPayment(payment: PaymentMethod): string {
+   
+    if (isUPI(payment)) {
+        return `Processing UPI payment for ID ${payment.upiId}`;
+    }
+    if (isCreditCard(payment)) {
+        return `Processing credit card payment for card ending in ${payment.cardNumber.slice(-4)}`;
+    }
+
+    if (isNetBanking(payment)) {
+        return `Processing net banking payment for account ${payment.accountNumber}`;
+    }
+
+    if (isWallet(payment)) {
+        return `Processing wallet payment for wallet ID ${payment.walletId}`;
+    }
+    return 'Unsupported payment method';
+
+    /*
     switch (payment.method) {
         case 'credit_card':
             return `Processing credit card payment for card ending in ${payment.cardNumber.slice(-4)}`;
@@ -35,5 +69,6 @@ export function processPayment(payment: PaymentMethod): string {
         default:
             throw new Error('Unsupported payment method');
     }
+*/
 }
 
