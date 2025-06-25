@@ -5,7 +5,7 @@ import {Model,Column, DataType, Table} from "sequelize-typescript";
 })
 export class Vehicle extends Model{
     @Column({
-        type: DataType.INTEGER,
+        type: DataType.STRING,
         field:'RegistrationNumber',
         primaryKey: true,
         autoIncrement: false,
@@ -77,9 +77,9 @@ export class Vehicle extends Model{
     @Column({
         type: DataType.STRING,
         allowNull: false,
-        validate: {
-            is: /^[A-Z0-9]{17}$/, // Assuming a standard 17-character VIN format
-        },
+       // validate: {
+         //   is: /^[A-Z0-9]{1,17}$/, // Assuming a standard 17-character VIN format
+      //  },
         field: 'ChassisNumber',
         defaultValue: 'Unknown', // Default value if not provided   
     })
@@ -87,10 +87,10 @@ export class Vehicle extends Model{
     @Column({
         type: DataType.STRING,
         allowNull: true,
-        validate: {
-
-            is: /^[A-Z0-9]{1,20}$/, // Assuming a maximum of 20 characters for engine number
-        },  
+        //validate: {
+//
+      //      is: /^[A-Z0-9]{1,20}$/, // Assuming a maximum of 20 characters for engine number
+      //  },  
         field: 'EngineNumber',
         defaultValue: 'Unknown', // Default value if not provided       
     })

@@ -77,7 +77,41 @@ export class VehicleRoute{
         
         
         this.router.delete("/v1.0:registrationNumber", (req, res) => this.vehicleController.deleteVehicle(req, res));
-      
+        /**
+ * @openapi
+ * /api/vehicles/v1.0:
+ *   get:
+ *     summary: Get all vehicles (with optional filters)
+ *     
+ *     responses:
+ *       200:
+ *         description: List of vehicles
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                  registrationNumber:
+ *                   type: string
+ *                  make:
+ *                   type: string
+ *                  model:
+ *                   type: string
+ *                  coloe:
+ *                   type: string
+ *                  year:
+ *                   type: integer
+ *                  dateAdded:
+ *                   type: date
+ *                  fuelType:
+ *                   type: string
+ *                  chassisNumber: 
+ *                   type: string
+ *                  engineNumber:
+ *                   type: string
+ */
         this.router.get("/v1.0", (req, res) => this.vehicleController.getAllVehicles(req, res));
     }   
 
