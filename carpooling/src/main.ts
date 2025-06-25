@@ -3,7 +3,8 @@ import './services/notificationservice'
 import { processPayment } from './models/payment'
 import { PaymentMethod } from './models/payment';
 import {getExternalApiPromise} from './services/externalapipromise';
-
+import { r } from '@faker-js/faker/dist/airline-BUL6NtOJ';
+import './services/generatorservice';
 
 const payment1:PaymentMethod={
     method: 'credit_card',
@@ -37,7 +38,11 @@ console.log(processPayment(payment4));
 //external api
 getExternalApiPromise<any>('https://jsonplaceholder.typicode.com/users')
     .then(data => {
-        console.log('External API Data:', data);
+        let result=JSON.parse(JSON.stringify(data));
+        result.forEach((user: any) => {
+            console.log(`User ID: ${user.id}, Name: ${user.name}, Email: ${user.email}`);
+        });
+        console.log('External API data fetched successfully.');
     })
     .catch(error => {
         console.error('Error fetching external API:', error);
